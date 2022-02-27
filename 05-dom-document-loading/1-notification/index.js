@@ -1,5 +1,5 @@
 export default class NotificationMessage {
-  static isVisible = false;
+  static isVisible;
 
   constructor(message, { duration = 2000, type = "success" } = {}) {
     this.message = message;
@@ -29,7 +29,7 @@ export default class NotificationMessage {
 
   show(targetElement = document.body) {
     if (NotificationMessage.isVisible) {
-      document.body.querySelector(".notification").remove();
+      NotificationMessage.isVisible.remove();
     }
     NotificationMessage.isVisible = true;
 
